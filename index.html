@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio — Ansh Gandhi</title>
+
+<!--BOOTSTRAP-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!--FONTS-->
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+
+:root{
+  --primary:'League Spartan',sans-serif;
+  --secondary:'Poppins',sans-serif;
+  --yellow:#f7e000;
+  --black:#151515;
+}
+
+
+.navbar{
+  width:100%;
+  background:var(--yellow);
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;left:0;
+  z-index:100;
+  font-family:var(--primary);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  color:#000;
+  text-decoration:none;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:50px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+  letter-spacing:1px;
+  font-family:var(--primary);
+}
+
+
+section{
+  width:100%;
+  min-height:100vh;
+  padding-top:120px;
+  display:none;
+}
+
+
+#home{display:flex}
+
+
+section:target{display:block}
+
+#about:target ~ #home,
+#works:target ~ #home,
+#work1:target ~ #home,
+#work2:target ~ #home,
+#work3:target ~ #home,
+#work4:target ~ #home,
+#contact:target ~ #home {display:none}
+
+
+#home{
+  background:#000;
+  height:85vh;
+  display:flex;
+  font-family:var(--primary);
+}
+
+.left{
+  width:45%;
+  background:#151515;
+  padding:160px 140px 120px;
+}
+
+.dots{
+  width:120px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-bottom:80px;
+}
+
+.dots span{
+  width:12px;height:12px;
+  background:#6f6f6f;
+  border-radius:50%;
+}
+
+.text-block h3{
+  font-weight:300;
+  font-size:28px;
+  color:#fff;
+}
+
+.text-block h1{
+  margin-top:10px;
+  color:#fff;
+  font-size:40px;
+  font-weight:800;
+  line-height:1.1;
+  white-space:nowrap;
+}
+
+.cta{
+  margin-top:10px;
+  padding:18px 35px;
+  background:var(--yellow);
+  border:none;
+  font-weight:700;
+  font-size:20px;
+  cursor:pointer;
+  display:inline-block;
+}
+
+.right{
+  width:55%;
+}
+
+.right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+#about{
+  background:#e5e5e5;
+  padding:180px 80px;
+  font-family:var(--secondary);
+}
+
+.about-section{
+  display:flex;
+  gap:80px;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.image-stack{
+  position:relative;
+  width:420px;
+}
+
+.block-yellow{
+  position:absolute;
+  width:100%;height:100%;
+  background:var(--yellow);
+  top:60px;left:-50px;z-index:1;
+}
+
+.block-black{
+  position:absolute;
+  width:100%;height:100%;
+  background:var(--black);
+  top:30px;left:-25px;z-index:2;
+}
+
+.image-wrapper{position:relative;z-index:3}
+
+.about-img{
+  width:100%;
+  display:block;
+}
+
+.text-area{max-width:650px}
+
+.who{
+  font-size:18px;
+  color:#222;
+  margin-bottom:10px;
+}
+
+.hello{
+  font-size:70px;
+  font-weight:900;
+  line-height:1;
+  position:relative;
+  display:inline-block;
+  padding-bottom:10px;
+  font-family:var(--primary);
+}
+
+
+.waves{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-left:20px;
+  margin-top:10px;
+}
+
+.waves img{width:70px}
+
+.about-text{
+  margin-top:20px;
+  font-size:20px;
+  line-height:1.6;
+  color:#1a1a1a;
+  max-width:600px;
+}
+
+
+#works{
+  background:#fff;
+  padding:120px 60px 160px;
+  font-family:var(--primary);
+}
+
+.works-inner{
+  max-width:1100px;
+  margin:0 auto;
+  text-align:center;
+  position:relative;
+}
+
+.works-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:80px;
+  margin-top:48px;
+  justify-items:center;
+}
+
+.thumb{ 
+  width:260px;height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+
+.thumb img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+
+.work-detail{
+  padding:120px 80px;
+  min-height:80vh;
+  background:#fff;
+  font-family:var(--secondary);
+}
+
+
+.footer{
+  background:var(--black);
+  color:#fff;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--primary);
+  font-size:14px;
+}
+
+
+#contact{
+  padding:140px 80px;
+  background:#fff;
+  font-family:var(--secondary);
+  min-height:70vh;
+  text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<!--NAVBAR-->
+<header class="navbar">
+  <a href="#home" class="logo">PORTFOLIO.</a>
+  <nav>
+    <ul>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#works">WORKS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!--HOME-->
+<section id="home">
+  <div class="left">
+    <div class="dots">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="text-block">
+      <h3>MY NAME IS</h3>
+      <h1>ANSH GANDHI</h1>
+      <div class="cta">I'M A GRAPHIC DESIGNER</div>
+    </div>
+  </div>
+
+  <div class="right">
+    <img src="ImagesPortfolio/smarty.png">
+  </div>
+</section>
+
+<!--ABOUT-->
+<section id="about">
+  <div class="about-section">
+    <div class="image-stack">
+      <div class="block-yellow"></div>
+      <div class="block-black"></div>
+
+      <div class="image-wrapper">
+        <div class="top-bar"></div>
+        <img src="ImagesPortfolio/smartypt2.png" class="about-img">
+      </div>
+    </div>
+
+    <div class="text-area">
+      <p class="who">who am i</p>
+
+      <div style="display:flex;align-items:flex-start;">
+        <h1 class="hello">HELLO</h1>
+
+        <div class="waves">
+          <img src="ImagesPortfolio/wave.png">
+        </div>
+      </div>
+
+      <p class="about-text">
+        I'm an aspiring graphic designer passionate about creating visuals that connect ideas with people.
+        I love exploring how design shapes the way we experience brands, whether it's through a website,
+        a logo, or a campaign.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--WORKS-->
+<section id="works">
+  <div class="works-inner">
+
+    <div class="works-title">MY WORK</div>
+    <div class="works-sub">awesome projects</div>
+
+    <div class="works-grid">
+      <a class="thumb" href="#work1">
+        <img src="ImagesPortfolio/work1.png">
+      </a>
+      <a class="thumb" href="#work2">
+        <img src="ImagesPortfolio/work2.png">
+      </a>
+      <a class="thumb" href="#work3">
+        <img src="ImagesPortfolio/work3.png">
+      </a>
+      <a class="thumb" href="#work4">
+        <img src="ImagesPortfolio/work4.png">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!--WORK 1-->
+<section id="work1" class="work-detail" style="padding-bottom:0;">
+  <a class="back" href="#works">← back to works</a>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <img src="ImagesPortfolio/work1.png" alt="7 Eleven Rebranding" style="max-width:550px; width:100%; display:block; margin:0 auto;">
+  </div>
+
+  <h2 class="title" style="font-size:32px; font-weight:800; margin-bottom:4px;">
+    7 Eleven Rebranding
+  </h2>
+  <p style="font-family:var(--secondary); font-size:14px; color:#444; margin-bottom:50px;">
+    campaign designing
+  </p>
+
+  <div style="background:var(--yellow); padding:60px 40px; font-family:var(--secondary);">
+
+    <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:50px;">
+
+      <div>
+        <img src="ImagesPortfolio/Eleven1.jpg" style="width:100%; display:block;">
+      </div>
+
+      <p style="font-size:16px; line-height:1.6; color:#000;">
+        These visuals are a part of my campaign design for 7 Eleven, we as a team rebranded 7 Eleven from its logo to packaging. The visuals presented in this slide were created by me from the campaign posters made on Adobe Illustrator to its packaging and its Instagram page layout.
+      </p>
+
+      <p style="font-size:16px; line-height:1.6; color:#000;">
+        The “Maa 0.2” campaign reimagines the emotional essence of care, nourishment, and everyday convenience through the lens of a modern mother. By aligning with 7-Eleven’s core identity as a trusted neighborhood brand, the campaign transforms the store’s personality into that of a caring, tech-savvy “Maa” — one who balances tradition and modernity effortlessly.
+      </p>
+
+      <div>
+        <img src="ImagesPortfolio/Eleven2.png" style="width:100%; display:block;">
+      </div>
+
+      <div>
+        <img src="ImagesPortfolio/Eleven3.png" style="width:100%; display:block;">
+      </div>
+
+      <p style="font-size:16px; line-height:1.6; color:#000;">
+        The rebranding integrates updated logos, packaging, and color palettes to center the campaign's human touch. Soft tones inspired by home kitchens, blended with 7-Eleven’s traditional palette, create a clean visual identity that highlights empathy, readiness, and emotional connection, turning everyday purchases into a gesture of care.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!--WORK 2-->
+<section id="work2" class="work-detail" style="padding-bottom:0;">
+
+  <a class="back" href="#works">← back to works</a>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <img src="ImagesPortfolio/work2.png" style="max-width:550px; width:100%; display:block; margin:0 auto;">
+  </div>
+
+  <h2 class="title" style="font-size:32px; font-weight:800; margin-bottom:4px;">
+    Deadpool Infograph
+  </h2>
+  <p style="font-family:var(--secondary); font-size:14px; color:#444; margin-bottom:50px;">
+    visual designing
+  </p>
+
+  <div style="background:var(--yellow); padding:60px 40px; font-family:var(--secondary);">
+
+    <div style="max-width:1100px; margin:0 auto; display:flex; gap:50px; align-items:flex-start; margin-bottom:60px;">
+      <img src="ImagesPortfolio/deadpool1.png" style="width:100%; max-width:380px; display:block;">
+      <p style="font-size:18px; line-height:1.6; color:#000;">
+        This infographic was designed to creatively summarize the Deadpool & Wolverine (2024) film using a playful, comic-inspired layout that reflects Deadpool’s chaotic and humorous personality. Built entirely on Adobe Illustrator, the piece combines bold type, witty character callouts, and vector graphics to present key movie information in an engaging and visually balanced format.
+      </p>
+    </div>
+
+    <div style="max-width:1100px; margin:0 auto; display:flex; gap:50px; align-items:flex-start;">
+      <p style="font-size:18px; line-height:1.6; color:#000;">
+        Overall, the infographic functions as a fun, stylized data visualization that merges film facts with character storytelling—reflecting both the movie’s energy and the designer’s creative control over layout, typography, and humor integration within Illustrator.
+      </p>
+      <img src="ImagesPortfolio/deadpool2.png" style="width:100%; max-width:380px; display:block;">
+    </div>
+
+    <div style="text-align:center; margin-top:60px;">
+      <img src="ImagesPortfolio/deadpool3.jpg" style="max-width:820px; width:100%; display:block; margin:0 auto;">
+    </div>
+
+  </div>
+</section>
+
+<!--WORK 3-->
+<section id="work3" class="work-detail" style="padding-bottom:0;">
+
+  <a class="back" href="#works">← back to works</a>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <img src="ImagesPortfolio/work3.png" style="max-width:550px; width:100%; display:block; margin:0 auto;">
+  </div>
+
+  <h2 class="title" style="font-size:32px; font-weight:800; margin-bottom:4px;">
+    Book Design
+  </h2>
+  <p style="font-family:var(--secondary); font-size:14px; color:#444; margin-bottom:50px;">
+    packaging design
+  </p>
+
+  <div style="background:var(--yellow); padding:60px 40px; font-family:var(--secondary);">
+
+    <div style="max-width:1100px; margin:0 auto; display:flex; gap:50px; align-items:flex-start; margin-bottom:60px;">
+      <img src="ImagesPortfolio/book1.png" style="width:100%; max-width:380px; display:block;">
+      <p style="font-size:18px; line-height:1.6; color:#000;">
+        Kiaan and His Watermelon is a playful and imaginative children's book created for ages 3-6 years. The story revolves around Kiaan, a curious young boy who accidentally swallows a watermelon seed and begins to believe a giant watermelon might grow inside his tummy. The narrative humorously captures the blend of childhood imagination and innocence, while gently teaching kids about food, curiosity, and logic.
+      </p>
+    </div>
+
+    <div style="text-align:center; margin-bottom:60px;">
+      <img src="ImagesPortfolio/book2.png" style="max-width:380px; width:100%; margin:0 20px;">
+    </div>
+
+    <div style="text-align:center;">
+      <img src="ImagesPortfolio/book3.png" style="max-width:300px; width:100%; margin:0 20px;">
+      <img src="ImagesPortfolio/book4.png" style="max-width:300px; width:100%; margin:0 20px;">
+    </div>
+
+  </div>
+</section>
+
+<!--WORK 4-->
+<section id="work4" class="work-detail" style="padding-bottom:0;">
+
+  <a class="back" href="#works">← back to works</a>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <img src="ImagesPortfolio/work4.png" style="max-width:550px; width:100%; display:block; margin:0 auto;">
+  </div>
+
+  <h2 class="title" style="font-size:32px; font-weight:800; margin-bottom:4px;">
+    NGO Branding
+  </h2>
+  <p style="font-family:var(--secondary); font-size:14px; color:#444; margin-bottom:50px;">
+    packaging design
+  </p>
+
+  <div style="background:var(--yellow); padding:60px 40px; font-family:var(--secondary);">
+
+    <div style="max-width:1100px; margin:0 auto; display:flex; gap:50px; align-items:flex-start; margin-bottom:60px;">
+      <img src="ImagesPortfolio/granmade1.jpg" style="width:100%; max-width:380px; display:block;">
+      <p style="font-size:18px; line-height:1.6; color:#000;">
+        The GranMade project focuses on branding and identity design for a social enterprise that empowers elderly women by selling hand-stitched and handmade products. The visual identity was created to reflect warmth, compassion, and purpose—values that define the brand’s essence.
+      </p>
+    </div>
+
+    <div style="text-align:center;">
+      <img src="ImagesPortfolio/granmade2.jpg" style="max-width:820px; width:100%; display:block; margin:0 auto;">
+    </div>
+
+  </div>
+</section>
+
+<!--CONTACT-->
+<section id="contact" style="text-align:left;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; gap:80px; font-family:var(--primary); align-items:flex-start;">
+
+    <div style="flex:1;">
+      <h1 style="font-size:48px; font-weight:800; margin-bottom:40px; color:#000; text-align:left;">
+        Get in Touch!
+      </h1>
+
+      <p style="font-size:18px; font-weight:700; color:#7a7a00; margin-bottom:6px; text-align:left;">Email:</p>
+      <p style="font-size:18px; margin-bottom:22px; font-family:var(--secondary); text-align:left;">
+        anshgandhi3979@gmail.com
+      </p>
+
+      <p style="font-size:18px; font-weight:700; color:#7a7a00; margin-bottom:6px; text-align:left;">Phone:</p>
+      <p style="font-size:18px; margin-bottom:22px; font-family:var(--secondary); text-align:left;">
+        +91 99785 77794
+      </p>
+
+      <p style="font-size:18px; font-weight:700; color:#7a7a00; margin-bottom:6px; text-align:left;">Address</p>
+      <p style="font-size:18px; font-family:var(--secondary); line-height:1.5; text-align:left;">
+        Sunteck BKC, 51, Lal Bahadur Shastri Marg, Kurla West,<br>
+        Mumbai, Maharashtra<br>
+        400070
+      </p>
+    </div>
+
+    <form style="flex:1; font-family:var(--secondary); text-align:left;">
+
+      <div style="display:flex; gap:30px; margin-bottom:25px;">
+        <div style="flex:1; text-align:left;">
+          <label style="font-size:16px; font-weight:600; color:#7a7a00; text-align:left;">Your Name</label>
+          <input type="text" placeholder="Your full name"
+            style="width:100%; margin-top:6px; padding:14px; border:none; border-radius:6px; background:#cfcfcf; font-size:14px;">
+        </div>
+
+        <div style="flex:1; text-align:left;">
+          <label style="font-size:16px; font-weight:600; color:#7a7a00; text-align:left;">Email Address</label>
+          <input type="email" placeholder="Your email address"
+            style="width:100%; margin-top:6px; padding:14px; border:none; border-radius:6px; background:#cfcfcf; font-size:14px;">
+        </div>
+      </div>
+
+      <div style="margin-bottom:30px; text-align:left;">
+        <label style="font-size:16px; font-weight:600; color:#7a7a00; text-align:left;">Message</label>
+        <textarea placeholder="Write something..."
+          style="width:100%; height:200px; margin-top:6px; padding:14px; border:none; border-radius:6px; background:#cfcfcf; font-size:14px; resize:none;"></textarea>
+      </div>
+
+      <button type="submit" 
+        style="width:100%; padding:14px; background:#000; color:#fff; font-size:16px; font-weight:600; border:none; border-radius:6px; cursor:pointer; font-family:var(--primary); text-align:center;">
+        Send Message
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<!--FOOTER-->
+<footer class="footer">
+  <div>+91 99785 77794</div>
+  <div style="font-weight:700">ANSH GANDHI</div>
+  <div>anshgandhi3979@gmail.com</div>
+</footer>
+
+<!--BOOTSTRAP-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
